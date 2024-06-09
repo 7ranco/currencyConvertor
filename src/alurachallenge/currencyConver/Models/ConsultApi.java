@@ -1,9 +1,6 @@
 package alurachallenge.currencyConver.Models;
 
 import com.google.gson.Gson;
-import com.google.gson.JsonArray;
-
-import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
@@ -16,9 +13,9 @@ public class ConsultApi {
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(directory)
                 .build();
-        HttpResponse<String> response= null;
+
         try {
-            response = client.send(request, HttpResponse.BodyHandlers.ofString());
+            HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
             return new Gson().fromJson(response.body(), Currency.class);
         } catch (Exception e) {
             throw new RuntimeException(e);

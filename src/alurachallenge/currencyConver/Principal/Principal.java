@@ -5,7 +5,6 @@ import alurachallenge.currencyConver.Models.Converter;
 import alurachallenge.currencyConver.Models.Currency;
 import alurachallenge.currencyConver.Models.FileGenerator;
 
-import javax.swing.table.TableRowSorter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,11 +15,10 @@ public class Principal {
         ConsultApi consult = new ConsultApi();
         Scanner reader = new Scanner(System.in);
         String usd = "USD";
-        boolean control = true;
         List<String> history = new ArrayList<>();
 
 
-        while (control){
+        while (true){
             String firstCurrency="", secondCurrency="";
             System.out.println("************************");
             System.out.println("--Conversiones disponibles--");
@@ -87,7 +85,7 @@ public class Principal {
 
                 System.out.println(res);
 
-                var result = history.add(res);
+                history.add(res);
             }catch (Exception e){
                 System.out.println("Oh! Ah ocurrido un error!");
             }
